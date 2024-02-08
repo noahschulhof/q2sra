@@ -1,7 +1,6 @@
 import pickle
 import os
 import shutil
-import subprocess
 from filter_fastq import *
 from manifest import *
 from write_metadata import *
