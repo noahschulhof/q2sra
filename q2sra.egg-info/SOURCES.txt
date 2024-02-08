@@ -1,0 +1,9 @@
+LICENSE.txt
+setup.cfg
+setup.py
+q2sra.egg-info/PKG-INFO
+q2sra.egg-info/SOURCES.txt
+q2sra.egg-info/dependency_links.txt
+q2sra.egg-info/requires.txt
+q2sra.egg-info/top_level.txt
+tests/test_deblur.py
