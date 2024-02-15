@@ -4,10 +4,12 @@ import shutil
 from filter_fastq import *
 from manifest import *
 from write_metadata import *
-from merge_metadata import *
 from prefetch import *
 from demux import *
 from deblur import *
+from merge_metadata import *
+from merge_tables import *
+from merge_repseqs import *
 
 
 class proj():
@@ -81,4 +83,6 @@ class proj():
     def merge(self):
         merge_metadata(self.name)
 
-        # merge tables and repseqs here
+        merge_tables(self.name)
+
+        merge_repseqs(self.name)
