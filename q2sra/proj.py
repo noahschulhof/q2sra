@@ -7,6 +7,7 @@ from write_metadata import *
 from prefetch import *
 from demux import *
 from deblur import *
+from dada2 import *
 from merge_metadata import *
 from merge_tables import *
 from merge_repseqs import *
@@ -36,7 +37,7 @@ class proj():
             return pickle.load(file)
     
 
-    def run(self, study_name: str, accession, include = [], exclude = []):
+    def run(self, study_name: str, accession, include = [], exclude = [], use_deblur = True):
 
         field_vals = {}
 
@@ -77,7 +78,10 @@ class proj():
 
         artifact = demux(self.paired, f'{study_name}_manifest.txt')
 
-        deblur(study_name, artifact)
+        if use_deblur:
+            deblur(study_name, artifact)
+        else:
+            dada2(study_name, artifact)
 
 
     def merge(self):
