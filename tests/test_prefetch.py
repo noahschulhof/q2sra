@@ -14,10 +14,22 @@ class PrefetchTest(unittest.TestCase):
         shutil.rmtree('test_dir')
 
 
-    def test_valid_accession(self):
+    def test_valid_accession1(self):
         prefetch('PRJNA737199', 'test_dir')
 
         self.assertEqual(len(os.listdir()), 35)
+    
+
+    def test_valid_accession2(self):
+        prefetch('SRP107074', 'test_dir')
+
+        self.assertEqual(len(os.listdir()), 60)
+
+
+    def test_valid_accession2(self):
+        prefetch('ERP017462', 'test_dir')
+
+        self.assertEqual(len(os.listdir()), 170)
 
 
     def test_invalid_accession(self):
