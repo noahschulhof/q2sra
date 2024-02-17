@@ -5,7 +5,7 @@ from q2sra.merge_metadata import merge_metadata
 from q2sra.merge_repseqs import merge_repseqs
 from q2sra.merge_tables import merge_tables
 
-class DemuxTest(unittest.TestCase):
+class MergeTest(unittest.TestCase):
     def setUp(self):
         pass
     

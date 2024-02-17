@@ -6,7 +6,7 @@ from q2sra.manifest import manifest
 from q2sra.demux import demux
 from q2sra.deblur import deblur
 
-class DemuxTest(unittest.TestCase):
+class DeblurTest(unittest.TestCase):
     def setUp(self):
         shutil.copytree('tests/ning', 'ning')
         os.chdir('ning')

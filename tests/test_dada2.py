@@ -6,7 +6,7 @@ from q2sra.manifest import manifest
 from q2sra.demux import demux
 from q2sra.dada2 import dada2
 
-class DemuxTest(unittest.TestCase):
+class Dada2Test(unittest.TestCase):
     def setUp(self):
         shutil.copytree('tests/ning', 'ning')
         os.chdir('ning')
