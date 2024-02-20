@@ -1,6 +1,5 @@
 import pickle
 import os
-import shutil
 from filter_fastq import *
 from manifest import *
 from write_metadata import *
@@ -13,7 +12,7 @@ from merge_tables import *
 from merge_repseqs import *
 
 
-class proj():
+class Proj():
 
     def __init__(self, name):
         self.name = name
@@ -53,20 +52,11 @@ class proj():
 
             field_vals[field] = val
 
-        study_dir = f'{self.name}/{study_name}'
+        study_dir = os.path.join(self.name, study_name)
 
-        if not os.path.exists(self.name):
-            os.mkdir(self.name)
-            os.mkdir(study_dir)
-        else:
-            if not os.path.exists(study_dir):
-                os.mkdir(study_dir)
-            else:
-                for file in os.listdir(study_dir):
-                    try:
-                        os.remove(f'{study_dir}/{file}')
-                    except:
-                        shutil.rmtree(f'{study_dir}/{file}')
+        os.makedirs(study_dir)
+
+        start = os.getcwd()
 
         prefetch(accession, study_dir)
 
@@ -82,6 +72,8 @@ class proj():
             deblur(study_name, artifact)
         else:
             dada2(study_name, artifact)
+        
+        os.chdir(start)
 
 
     def merge(self):
