@@ -2,24 +2,20 @@
 
 ## Prerequisites
 - [`Python`](https://www.python.org/downloads/release/python-3116/) v3.11.6+
-- [`QIIME 2`](https://qiime2.org/) v2024.2+
+- [`QIIME 2`](https://qiime2.org/) v2023.7+
 - [`SRA Toolkit`](https://hpc.nih.gov/apps/sratoolkit.html) v3.0.0+
 - [`pandas`](https://pypi.org/project/pandas/) v2.1.2+
 
-### Conda Installation
+### Installing QIIME 2 with Conda
 
 ```bash
-$ wget https://data.qiime2.org/distro/amplicon/qiime2-amplicon-2024.2-py38-linux-conda.yml
+$ wget https://data.qiime2.org/distro/core/qiime2-2023.7-py38-linux-conda.yml
 $ conda env create \
-    -n qiime2-amplicon-2024.2 \
-    --file qiime2-amplicon-2024.2-py38-linux-conda.yml
-$ rm qiime2-amplicon-2024.2-py38-linux-conda.yml
+    -n qiime2-2023.7 \
+    --file qiime2-2023.7-py38-linux-conda.yml
+$ rm qiime2-2023.7-py38-linux-conda.yml
 ```
 
-`pandas` comes pre-installed with the [Anaconda](https://docs.anaconda.com/free/anaconda/index.html) Distribution. Users running the [Miniconda](https://docs.anaconda.com/free/miniconda/) Distribution should execute the command:
-```bash
-$ conda install -c conda-forge pandas
-```
 
 ### Installing `SRA Toolkit`
 Instructions can be found [here](https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit).
