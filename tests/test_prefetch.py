@@ -27,9 +27,9 @@ class PrefetchTest(unittest.TestCase):
 
 
     def test_valid_accession2(self):
-        prefetch('ERP017462', 'test_dir')
+        prefetch('PRJNA590493', 'test_dir')
 
-        self.assertEqual(len(os.listdir()), 170)
+        self.assertEqual(len(os.listdir()), 72)
 
 
     def test_invalid_accession(self):
