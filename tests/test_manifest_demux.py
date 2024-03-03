@@ -8,16 +8,19 @@ from q2sra.demux import demux
 class DemuxTest(unittest.TestCase):
     def setUp(self):
         shutil.copytree('tests/ning', 'ning')
-        os.chdir('ning')
+        shutil.copytree('tests/jiang', 'jiang')
     
 
     def tearDown(self):
         os.chdir('../')
         shutil.rmtree('ning')
+        shutil.rmtree('jiang')
     
 
-    def test_paired(self):
-        filter_fastq([], [], True, 30)
+    def test_paired1(self):
+        os.chdir('ning')
+
+        filter_fastq([], [], True, 7)
 
         manifest('ning', True)
 
@@ -27,16 +30,46 @@ class DemuxTest(unittest.TestCase):
 
         assert os.path.exists('ning_demux.qza')
 
-    def test_single(self):
-        filter_fastq([], [], False, 30)
 
-        manifest('ning', False)
+    def test_single1(self):
+        os.chdir('jiang')
 
-        assert os.path.exists('ning_manifest.txt')
+        filter_fastq([], [], False, 12)
 
-        demux(False, 'ning_manifest.txt')
+        manifest('jiang', False)
+
+        assert os.path.exists('jiang_manifest.txt')
+
+        demux(False, 'jiang_manifest.txt')
         
-        assert os.path.exists('ning_demux.qza')
+        assert os.path.exists('jiang_demux.qza')
+
+
+    def test_paired2(self):
+        os.chdir('jiang')
+
+        filter_fastq([], [], True, 7)
+
+        manifest('jiang', True)
+
+        assert os.path.exists('jiang_manifest.txt')
+
+        demux(True, 'jiang_manifest.txt')
+
+        assert os.path.exists('jiang_demux.qza')
+
+    def test_single2(self):
+        os.chdir('jiang')
+        
+        filter_fastq([], [], False, 12)
+
+        manifest('jiang', False)
+
+        assert os.path.exists('jiang_manifest.txt')
+
+        demux(False, 'jiang_manifest.txt')
+        
+        assert os.path.exists('jiang_demux.qza')
 
 
 
