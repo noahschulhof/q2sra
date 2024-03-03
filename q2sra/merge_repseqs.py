@@ -12,4 +12,4 @@ def merge_repseqs(proj_name):
     
     merged_repseqs = merge_seqs(repseqs)
 
-    merged_repseqs.save(os.path.join(proj_name, f'{proj_name}_repseqs_merged.qza'))
+    merged_repseqs.merged_data.save(os.path.join(proj_name, f'{proj_name}_repseqs_merged.qza'))

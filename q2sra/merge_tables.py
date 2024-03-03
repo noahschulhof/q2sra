@@ -12,4 +12,4 @@ def merge_tables(proj_name):
     
     merged_tables = merge(tables)
 
-    merged_tables.save(os.path.join(proj_name, f'{proj_name}_table_merged.qza'))
+    merged_tables.merged_table.save(os.path.join(proj_name, f'{proj_name}_table_merged.qza'))
