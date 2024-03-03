@@ -21,9 +21,9 @@ class PrefetchTest(unittest.TestCase):
     
 
     def test_valid_accession2(self):
-        prefetch('SRP107074', 'test_dir')
+        prefetch('PRJNA504404', 'test_dir')
 
-        self.assertEqual(len(os.listdir()), 60)
+        self.assertEqual(len(os.listdir()), 18)
 
 
     def test_valid_accession3(self):
@@ -33,9 +33,9 @@ class PrefetchTest(unittest.TestCase):
     
 
     def test_valid_accession4(self):
-        prefetch('DRA007725', 'test_dir')
+        prefetch('PRJNA481425', 'test_dir')
 
-        self.assertEqual(len(os.listdir()), 34)
+        self.assertEqual(len(os.listdir()), 36)
 
 
     def test_invalid_accession(self):
