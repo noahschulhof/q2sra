@@ -16,10 +16,10 @@ class RunTest(unittest.TestCase):
     
 
     def test_paired(self):
-        self.p.run('chang', 'PRJNA601807', use_deblur = False)
-        self.assertEqual(len(os.listdir('chang/fastq-files')), 20)
-        assert os.path.exists('chang/chang_table.qza')
-        assert os.path.exists('chang/chang_repseqs.qza')
+        self.p.run('zhang', 'PRJNA516815', use_deblur = False)
+        self.assertEqual(len(os.listdir('zhang/fastq-files')), 44)
+        assert os.path.exists('zhang/zhang_table.qza')
+        assert os.path.exists('zhang/zhang_repseqs.qza')
         
         self.p.run('arizza', 'PRJNA481425')
         self.assertEqual(len(os.listdir('arizza/fastq-files')), 36)
@@ -31,10 +31,10 @@ class RunTest(unittest.TestCase):
         self.p.paired = False
         self.nsamples = 8
 
-        self.p.run('chang', 'PRJNA601807')
-        self.assertEqual(len(os.listdir('chang/fastq-files')), 8)
-        assert os.path.exists('chang/chang_table.qza')
-        assert os.path.exists('chang/chang_repseqs.qza')
+        self.p.run('zhang', 'PRJNA516815')
+        self.assertEqual(len(os.listdir('zhang/fastq-files')), 8)
+        assert os.path.exists('zhang/zhang_table.qza')
+        assert os.path.exists('zhang/zhang_repseqs.qza')
         
         self.p.run('arizza', 'PRJNA481425', use_deblur = False)
         self.assertEqual(len(os.listdir('arizza/fastq-files')), 8)
