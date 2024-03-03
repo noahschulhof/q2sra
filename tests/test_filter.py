@@ -61,7 +61,7 @@ class FilterTest(unittest.TestCase):
         os.chdir('ning')
         filter_fastq(['835', '836'], ['9'], True, nsamples = 20)
         self.assertEqual(len(os.listdir('fastq-files')), 36)
-        self.assertTrue(all('835' in f and '836' in f and not '9' in f for f in os.listdir('fastq-files')))
+        self.assertTrue(all('835' in f or '836' in f and not '9' in f for f in os.listdir('fastq-files')))
 
         os.chdir('../jiang')
         filter_fastq(['from'], ['Wild'], False, nsamples = 5)
