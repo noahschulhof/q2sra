@@ -54,7 +54,7 @@ Instructions can be found [here](https://github.com/ncbi/sra-tools/wiki/01.-Down
 ```
 
 
-## Aggregating studies
+## Aggregating Studies
 ```python
 >>> proj.merge()
 ```
