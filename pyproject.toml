@@ -1,0 +1,23 @@
+[build-system]
+requires = ['hatchling',
+            'pandas >= 1.5.3']
+build-backend = 'hatchling.build'
+
+[project]
+name = 'q2sra_noahschulhof'
+version = '0.0.1'
+authors = [
+  {name='Noah Schulhof', email='nschulhof@u.northwestern.edu'},
+]
+description = 'Fetch, process, analyze, and aggregate microbiome sequencing data using SRA Toolkit and QIIME2.'
+readme = 'README.md'
+requires-python = '>=3.8'
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+]
+
+[project.urls]
+Homepage = 'https://github.com/noahschulhof/q2sra'
+Issues = 'https://github.com/noahschulhof/q2sra/issues'
