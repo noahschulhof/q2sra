@@ -61,7 +61,6 @@ Instructions can be found [here](https://github.com/ncbi/sra-tools/wiki/01.-Down
 - `accession` - Study accession number in [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra)
 - `include` - List of strings that must be included when filtering `.fastq` files [default=`[]`]
 - `exclude` - List of strings that must be excluded when filtering `.fastq` files [default=`[]`]
-- `use_deblur` - If `True`, use QIIME2 [`Deblur`](https://docs.qiime2.org/2024.2/plugins/available/deblur/) for sequence quality control. If `False`, use QIIME2 [`DADA2`](https://docs.qiime2.org/2024.2/plugins/available/dada2/) [default=`True`]
 
 ```python
 >>> proj.run('smith_2022', 'PRJ12345678')
