@@ -5,7 +5,6 @@ from manifest import *
 from write_metadata import *
 from prefetch import *
 from demux import *
-from deblur import *
 from dada2 import *
 from merge_metadata import *
 from merge_tables import *
@@ -36,7 +35,7 @@ class Proj():
             return pickle.load(file)
     
 
-    def run(self, study_name: str, accession, include = [], exclude = [], use_deblur = True):
+    def run(self, study_name: str, accession, include = [], exclude = []):
 
         field_vals = {}
 
@@ -68,10 +67,7 @@ class Proj():
 
         artifact = demux(self.paired, f'{study_name}_manifest.txt')
 
-        if use_deblur:
-            deblur(study_name, artifact)
-        else:
-            dada2(study_name, artifact)
+        dada2(study_name, artifact)
         
         os.chdir(start)
 
