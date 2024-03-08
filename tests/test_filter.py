@@ -39,7 +39,7 @@ class FilterTest(unittest.TestCase):
         self.assertEqual(len(os.listdir('fastq-files')), 8)
         self.assertTrue(all('835' in f for f in os.listdir('fastq-files')))
 
-        os.chdir('jiang')
+        os.chdir('../jiang')
         filter_fastq(['Captive'], [], False, nsamples = 8)
         self.assertEqual(len(os.listdir('fastq-files')), 3)
         self.assertTrue(all('Captive' in f for f in os.listdir('fastq-files')))
