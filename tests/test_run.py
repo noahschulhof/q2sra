@@ -21,10 +21,10 @@ class RunTest(unittest.TestCase):
         assert os.path.exists('test_proj/zhang/zhang_table.qza')
         assert os.path.exists('test_proj/zhang/zhang_repseqs.qza')
         
-        self.p.run('arizza', 'PRJNA481425')
-        self.assertEqual(len(os.listdir('test_proj/arizza/fastq-files')), 36)
-        assert os.path.exists('test_proj/arizza/arizza_table.qza')
-        assert os.path.exists('test_proj/arizza/arizza_repseqs.qza')
+        self.p.run('murphy', 'PRJNA504404')
+        self.assertEqual(len(os.listdir('test_proj/murphy/fastq-files')), 18)
+        assert os.path.exists('test_proj/murphy/murphy_table.qza')
+        assert os.path.exists('test_proj/murphy/murphy_repseqs.qza')
     
 
     def test_single(self):
@@ -36,10 +36,10 @@ class RunTest(unittest.TestCase):
         assert os.path.exists('test_proj/zhang/zhang_table.qza')
         assert os.path.exists('test_proj/zhang/zhang_repseqs.qza')
         
-        self.p.run('arizza', 'PRJNA481425')
-        self.assertEqual(len(os.listdir('test_proj/arizza/fastq-files')), 8)
-        assert os.path.exists('test_proj/arizza/arizza_table.qza')
-        assert os.path.exists('test_proj/arizza/arizza_repseqs.qza')
+        self.p.run('murphy', 'PRJNA504404')
+        self.assertEqual(len(os.listdir('test_proj/murphy/fastq-files')), 9)
+        assert os.path.exists('test_proj/murphy/murphy_table.qza')
+        assert os.path.exists('test_proj/murphy/murphy_repseqs.qza')
 
 
 
