@@ -15,10 +15,16 @@ def filter_fastq(include, exclude, paired, nsamples):
         paired = False
 
     if paired:
+        for file in os.listdir():
+            if not '_1.fastq' in file or not '_2.fastq' in file:
+                os.remove(file)
         while len([file for file in os.listdir() if '.fastq' in file]) > 2 * nsamples:
             os.remove([file for file in os.listdir() if '1.fastq' in file][0])
             os.remove([file for file in os.listdir() if '2.fastq' in file][0])
     else:
+        for file in os.listdir():
+            if '2.fastq' in file:
+                os.remove(file)
         while len([file.split('.')[0] for file in os.listdir() if '.fastq' in file]) > nsamples:
             os.remove([file for file in os.listdir() if '.fastq' in file][0])
 
