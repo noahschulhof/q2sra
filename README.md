@@ -39,7 +39,7 @@ To create a project, simply initialize a `q2sra.Proj` object, supplying the inte
 | Attribute   | Type         | Default         | Description            |
 |-------------|--------------|-----------------|------------------------|
 | `name`      | String       | None            | Project name           |
-| `fields`    | Dictionary  | { }              | Metadata fields        |
+| `fields`    | List of str  | [ ]              | Metadata fields        |
 | `nsamples`  | Integer      | 30             | Maximum number of samples from each study |
 | `paired`    | Boolean      | True            | Whether to use forward and reverse reads or exclusively forward reads |
 
