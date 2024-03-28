@@ -1,4 +1,6 @@
 # q2sra
+Conventional [microbiome](https://www.niehs.nih.gov/health/topics/science/microbiome) bioinformatics workflows are riddled with inefficiencies, as users must navigate a variety of fragmented tools, command-line utilities, and file management systems. In the contemporary research setting, with multiple individuals contribtuting to a singular project, issues with uniformity often arise, complicating subsequent data aggregation/analysis. The `q2sra` package reconciles these obstacles by providing a streamlined, centralized, and standardized framework for microbiome data analysis with [`QIIME2`](https://qiime2.org/).
+
 
 ## Installation
 ```bash
