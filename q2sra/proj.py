@@ -1,15 +1,14 @@
 import pickle
 import os
-from filter_fastq import *
-from manifest import *
-from write_metadata import *
-from prefetch import *
-from demux import *
-from dada2 import *
-from merge_metadata import *
-from merge_tables import *
-from merge_repseqs import *
-
+from .filter_fastq import *
+from .manifest import *
+from .write_metadata import *
+from .prefetch import *
+from .demux import *
+from .dada2 import *
+from .merge_metadata import *
+from .merge_tables import *
+from .merge_repseqs import *
 
 class Proj():
 
