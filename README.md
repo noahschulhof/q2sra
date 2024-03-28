@@ -1,5 +1,5 @@
 # q2sra
-Conventional [microbiome](https://www.niehs.nih.gov/health/topics/science/microbiome) bioinformatics workflows are riddled with inefficiencies, as users must navigate a variety of fragmented tools, command-line utilities, and file management systems. In the contemporary research setting, with multiple individuals contribtuting to a singular project, issues with uniformity often arise, complicating subsequent data aggregation/analysis. The `q2sra` package reconciles these obstacles by providing a streamlined, centralized, and standardized framework for microbiome data analysis with [`QIIME2`](https://qiime2.org/).
+Conventional [microbiome](https://www.niehs.nih.gov/health/topics/science/microbiome) bioinformatics workflows are riddled with inefficiencies, as users must navigate a variety of fragmented tools, command-line utilities, and file management systems. In the contemporary research setting, with multiple individuals contribtuting to a singular project, issues with uniformity often arise, complicating subsequent data aggregation/analysis. The `q2sra` package reconciles these obstacles by providing a streamlined, centralized, and standardized framework for microbiome data analysis with [`QIIME 2`](https://qiime2.org/).
 
 
 ## Installation
@@ -14,7 +14,7 @@ $ pip install q2sra
 - [`SRA Toolkit`](https://hpc.nih.gov/apps/sratoolkit.html) v3.0.0+
 
 
-### Installing QIIME 2 with Conda
+### Installing `QIIME 2` with Conda
 
 ```bash
 $ wget https://data.qiime2.org/distro/core/qiime2-2023.7-py38-linux-conda.yml
@@ -37,7 +37,7 @@ To create a project, simply initialize a `q2sra.Proj` object, supplying the inte
 >>> proj = Proj('my_proj')
 ```
 
-## `q2sra` Project Attributes
+### `q2sra` Project Attributes
 | Attribute   | Type         | Default         | Description            |
 |-------------|--------------|-----------------|------------------------|
 | `name`      | String       | None            | Project name           |
@@ -96,9 +96,11 @@ q2sra.Proj.run(study_name: str, accession: str, include: list, exclude: list) ->
 - `include` - List of substrings that **must** be included when filtering `.fastq` files [default=`[]`]
 - `exclude` - List of substrings that **must** be excluded when filtering `.fastq` files [default=`[]`]
 
-### Example Run
+### Example Run (w/ user input)
 ```python
 >>> proj.run('takagi_2022', 'PRJNA809527')
+Phylum: Chordata
+[Required] Country: Japan
 ```
 
 
