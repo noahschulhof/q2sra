@@ -1,5 +1,5 @@
 # q2sra
-Conventional [microbiome](https://www.niehs.nih.gov/health/topics/science/microbiome) bioinformatics workflows are riddled with inefficiencies, as users must navigate a variety of fragmented tools, command-line utilities, and file management systems. In the contemporary research setting, with multiple individuals contribtuting to a singular project, issues with uniformity often arise, complicating subsequent data aggregation/analysis. The `q2sra` package reconciles these obstacles by providing a streamlined, centralized, and standardized framework for microbiome data analysis with [`QIIME 2`](https://qiime2.org/).
+Conventional [microbiome](https://www.niehs.nih.gov/health/topics/science/microbiome) bioinformatics workflows are riddled with inefficiencies, with users navigating a variety of fragmented tools, command-line utilities, and file management systems. In the contemporary research setting, with multiple individuals contribtuting to a singular project, issues with uniformity often arise, complicating subsequent data aggregation/analysis. The `q2sra` package reconciles these obstacles by providing a streamlined, centralized, and standardized framework for microbiome data analysis with [`QIIME 2`](https://qiime2.org/).
 
 
 ## Installation
@@ -29,8 +29,8 @@ $ rm qiime2-2023.7-py38-linux-conda.yml
 Instructions can be found [here](https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit).
 
 
-## Creating a `q2sra` Project
-To create a project, simply initialize a `q2sra.Proj` object, supplying the intended project name as the sole parameter.
+## Initializing a `q2sra` Project
+To create a project, initialize a `q2sra.Proj` object, supplying the intended project name as the sole parameter.
 
 ```python
 >>> from q2sra import Proj
@@ -40,10 +40,10 @@ To create a project, simply initialize a `q2sra.Proj` object, supplying the inte
 ### `q2sra` Project Attributes
 | Attribute   | Type         | Default         | Description            |
 |-------------|--------------|-----------------|------------------------|
-| `name`      | String       | None            | Project name           |
-| `fields`    | List of str  | [ ]              | Metadata fields        |
-| `nsamples`  | Integer      | 30             | Maximum number of samples from each study |
-| `paired`    | Boolean      | True            | Whether to use forward and reverse reads or exclusively forward reads |
+| `name`      | `str`        | `None`          | Project name           |
+| `fields`    | `list[str]`  | `None`          | Metadata fields        |
+| `nsamples`  | `int`        | `30`            | Maximum number of samples from each study |s
+| `paired`    | `bool`       | `True`          | Whether to use forward **and** reverse reads (`True`) or exclusively forward reads (`False`)|
 
 ## Adding Metadata Fields
 ```python
@@ -51,12 +51,31 @@ q2sra.Proj.add_field(field: str, required: bool) -> None
 ```
 ### Arguments
 - `field` - Name of field
-- `required` - Whether the field is required [default=`False`]
+- `required` - Whether the field is required [default = `False`]
 
 ### Example Run
 ```python
 >>> proj.add_field('Phylum')
 >>> proj.add_field('Country', required = True)
+```
+
+
+## Adding Studies to a Project
+```python
+q2sra.Proj.run(study_name: str, accession: str, include: list[str], exclude: list[str]) -> None
+```
+
+### Arguments
+- `study_name` - Name of study
+- `accession` - Study accession number in the [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra)
+- `include` - List of substrings that **must** be included when filtering `.fastq` files [default = `[]`]
+- `exclude` - List of substrings that **must** be excluded when filtering `.fastq` files [default = `[]`]
+
+### Example Run (w/ user input)
+```python
+>>> proj.run('takagi_2022', 'PRJNA809527')
+Phylum: Chordata
+[Required] Country: Japan
 ```
 
 
@@ -66,7 +85,7 @@ q2sra.Proj.add_field(field: str, required: bool) -> None
 ```
 
 ### Output
-`<proj name>.pkl` - a `pickle` file storing the project's attributes.
+`<proj name>.pkl` - a [`pickle`](https://docs.python.org/3/library/pickle.html) file storing the project's attributes.
 
 
 ## Loading a Pre-configured Project
@@ -82,25 +101,6 @@ q2sra.proj.load(name: str) -> None
 ### Example Run
 ```python
 >>> proj = Proj.load('my_proj')
-```
-
-
-## Adding Studies
-```python
-q2sra.Proj.run(study_name: str, accession: str, include: list, exclude: list) -> None
-```
-
-### Arguments
-- `study_name` - Name of study
-- `accession` - Study accession number in the [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra)
-- `include` - List of substrings that **must** be included when filtering `.fastq` files [default=`[]`]
-- `exclude` - List of substrings that **must** be excluded when filtering `.fastq` files [default=`[]`]
-
-### Example Run (w/ user input)
-```python
->>> proj.run('takagi_2022', 'PRJNA809527')
-Phylum: Chordata
-[Required] Country: Japan
 ```
 
 
