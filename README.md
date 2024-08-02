@@ -67,7 +67,7 @@ q2sra.Proj.run(study_name: str, accession: str, include: list[str], exclude: lis
 
 ### Arguments
 - `study_name` - Name of study
-- `accession` - Study accession number in the [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra)
+- `accession` - Study accession code in the [NCBI SRA database](https://www.ncbi.nlm.nih.gov/sra)
 - `include` - List of substrings that **must** be included when filtering `.fastq` files [default = `[]`]
 - `exclude` - List of substrings that **must** be excluded when filtering `.fastq` files [default = `[]`]
 
@@ -92,7 +92,7 @@ Phylum: Chordata
 Any existing `q2sra` project saved in `.pkl` format (see previous step) can later be loaded to perform additional actions (adding more studies, merging runs, etc.).
 
 ```python
-q2sra.proj.load(name: str) -> None
+q2sra.Proj.load(name: str) -> None
 ```
 
 ### Arguments
